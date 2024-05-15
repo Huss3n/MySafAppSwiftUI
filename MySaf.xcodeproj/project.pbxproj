@@ -18,14 +18,16 @@
 		D7E2EE872BF3A7D500F52350 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D7E2EE862BF3A7D500F52350 /* FirebaseDatabaseSwift */; };
 		D7E2EE892BF3A7D500F52350 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D7E2EE882BF3A7D500F52350 /* FirebaseFirestore */; };
 		D7E2EE8B2BF3A7D500F52350 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = D7E2EE8A2BF3A7D500F52350 /* FirebaseFirestoreCombine-Community */; };
+		D7E3117B2BF5366200A35A94 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E3117A2BF5366200A35A94 /* CustomTabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D7E2EE6A2BF3A1E000F52350 /* MySaf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySaf.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7E2EE6A2BF3A1E000F52350 /* MySaf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = MySaf.app; path = "/Users/hussein/Desktop/IoSApps/MySaf/build/Debug-iphoneos/MySaf.app"; sourceTree = "<absolute>"; };
 		D7E2EE6D2BF3A1E000F52350 /* MySafApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySafApp.swift; sourceTree = "<group>"; };
 		D7E2EE6F2BF3A1E000F52350 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D7E2EE712BF3A1E200F52350 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7E2EE742BF3A1E200F52350 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D7E3117A2BF5366200A35A94 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,23 +52,18 @@
 			isa = PBXGroup;
 			children = (
 				D7E2EE6C2BF3A1E000F52350 /* MySaf */,
-				D7E2EE6B2BF3A1E000F52350 /* Products */,
 				D7E2EE7F2BF3A7D500F52350 /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		D7E2EE6B2BF3A1E000F52350 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D7E2EE6A2BF3A1E000F52350 /* MySaf.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		D7E2EE6C2BF3A1E000F52350 /* MySaf */ = {
 			isa = PBXGroup;
 			children = (
-				D7E2EE6D2BF3A1E000F52350 /* MySafApp.swift */,
+				D7E311752BF5360100A35A94 /* App */,
+				D7E311792BF5361B00A35A94 /* Auth */,
+				D7E311762BF5360600A35A94 /* Core */,
+				D7E311772BF5360B00A35A94 /* Components */,
+				D7E311782BF5361300A35A94 /* Service */,
 				D7E2EE6F2BF3A1E000F52350 /* ContentView.swift */,
 				D7E2EE712BF3A1E200F52350 /* Assets.xcassets */,
 				D7E2EE732BF3A1E200F52350 /* Preview Content */,
@@ -87,6 +84,43 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7E311752BF5360100A35A94 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D7E2EE6D2BF3A1E000F52350 /* MySafApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		D7E311762BF5360600A35A94 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		D7E311772BF5360B00A35A94 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D7E3117A2BF5366200A35A94 /* CustomTabBar.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D7E311782BF5361300A35A94 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D7E311792BF5361B00A35A94 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,7 +180,7 @@
 				D7E2EE7B2BF3A48E00F52350 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				D7E2EE7E2BF3A58400F52350 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
-			productRefGroup = D7E2EE6B2BF3A1E000F52350 /* Products */;
+			productRefGroup = D7E2EE612BF3A1E000F52350;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -173,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7E2EE702BF3A1E000F52350 /* ContentView.swift in Sources */,
+				D7E3117B2BF5366200A35A94 /* CustomTabBar.swift in Sources */,
 				D7E2EE6E2BF3A1E000F52350 /* MySafApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
