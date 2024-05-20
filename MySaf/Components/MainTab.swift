@@ -11,22 +11,22 @@ struct MainTab: View {
     @State private var tabSelection = 1
     
     var body: some View {
-        ZStack {
+        NavigationStack {
             TabView(selection: $tabSelection) {
                 HomeView()
                     .tag(1)
                 
-                Text("mpesa")
+                MpesaView()
                     .tag(2)
                 
-                Text("gift")
+                SPage()
                     .tag(3)
                 
                 
-                Text("discover")
+                Categories()
                     .tag(4)
                 
-                Text("account")
+                Account()
                     .tag(5)
             }
             .overlay(alignment: .bottom) {

@@ -13,96 +13,142 @@ enum Theme {
 }
 
 struct HomeView: View {
-    @AppStorage("systemThemeValue") private var systemThemeValue: Int = SchemeType.allCases.first!.rawValue
-    @State private var isDarkMode: Bool = false // User preference for dark mode
+    let slideImages: [String] = ["pic1", "pic2", "pic3", "pic4", "pic5"]
+    
+    //    @AppStorage("systemThemeValue") private var systemThemeValue: Int = SchemeType.allCases.first!.rawValue
     @Environment(\.colorScheme) private var colorScheme: ColorScheme // System color scheme
+    @State private var isDarkMode: Bool = false // Updates user preference
     
-    // Computed property for current theme based on user preference and system color scheme
-    private var currentTheme: String {
-        if isDarkMode {
-            return "Dark" // User preference overrides system color scheme
-        } else {
-            return colorScheme == .light ? "Light" : "Dark"
-        }
-    }
+    @State private var showSearchView: Bool = false
     
-    @State private var selectedTheme: ColorScheme = .light // Initialize with a default theme
+    @State private var selectedTheme: ColorScheme? = nil
+    
     
     var columns: [GridItem] = [
         GridItem(.flexible(), spacing: nil, alignment: nil),
         GridItem(.flexible(), spacing: nil, alignment: nil)
     ]
     
+    @State private var selectedImageIndex: Int = 0
+    
     var body: some View {
         NavigationStack {
             ZStack {
-                zGroup
                 VStack(alignment: .leading) {
-                        ScrollView {
-                            // MARK: Story views - has horizontal scroll view
-                            storyViews
-                            
-                            // MARK: Sliding image and two grid rows
-                            imageSlidesButtons
-                            
-                            // MARK: Start of grid
-                            gridButtons
-                            
-                            // MARK: Hot deals
-                            Text("HOT DEALS")
-                                .foregroundStyle(.gray)
-                                .fontWeight(.light)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            
-                            ScrollView(.horizontal) {
-                                HStack {
-                                    HotDealsComponent(offer1: "Sh 100 = 2GB, 24 Hr", offer2: "+FREE Gmaps")
-                                    HotDealsComponent(offer1: "Sh 20 (30 Minutes, 3hrs")
-                                    HotDealsComponent(offer1: "Sh 20 = 200MB + 10 Mins,", offer2: "1hr")
-                                    HotDealsComponent(offer1: "Sh 50 (Kredo,", offer2: "125, Midnight")
-                                    HotDealsComponent(offer1: "Sh 10 = 1024MB", offer2: "TikTok, 1Hr")
-                                }
-                            }
-                        }
-                        .scrollIndicators(.hidden)
-                        .frame(maxHeight: .infinity)
-                        .background(.red)
-                    }
-                    .toolbar {
-                        ToolbarItem(placement: .topBarLeading) {
+                    // MARK: Green name
+                    
+                    VStack {
+                        HStack {
                             HStack {
-                                Image(systemName: isDarkMode ? "moonphase.first.quarter.inverse" : "sun.min")
+                                Image(systemName: colorScheme == .dark ? "moonphase.first.quarter.inverse" : "sun.min")
                                     .imageScale(.large)
-                                Text(isDarkMode ? "Dark Mode" : "Light Mode")
+                                Text(colorScheme == .dark ? "Dark Mode" : "Light Mode")
                             }
                             .foregroundStyle(.white)
                             .onTapGesture {
                                 withAnimation(.easeInOut) {
-                                    isDarkMode.toggle()
-                                    // Update selectedTheme directly based on isDarkMode
-                                    selectedTheme = isDarkMode ? .dark : .light
+                                    // Update selectedTheme directly based on user system
+                                    
                                 }
                             }
-                        }
-                        
-                        ToolbarItem(placement: .topBarTrailing) {
+                            
+                            
+                            Spacer()
+                            
                             HStack(spacing: 30) {
                                 Image(systemName: "magnifyingglass")
+                                    .onTapGesture {
+                                        showSearchView.toggle()
+                                    }
                                 Image(systemName: "bell.badge")
                             }
                             .foregroundStyle(.white)
                         }
+                        .padding(.horizontal)
+                        
+                        TopView()
                     }
-                    .offset(y: 138)
-                    .padding(.horizontal, 4)
+                    .background(colorScheme == .light ? .green : .black)
+                    .padding(.bottom, 36)
+                    
+                    
+                    ScrollView {
+                        // MARK: Story views - has horizontal scroll view
+                        storyViews
+                        // MARK: Sliding image and two grid rows
+                        imageSlidesButtons
+                            .padding(.horizontal, 6)
+                        // MARK: Start of grid
+                        gridButtons
+                            .padding(.horizontal, 6)
+                        // MARK: Hot deals
+                        Text("HOT DEALS")
+                            .foregroundStyle(.gray)
+                            .fontWeight(.light)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading, 8)
+                            .padding(.top, 8)
+                        
+                        ScrollView(.horizontal) {
+                            HStack {
+                                HotDeals(offer1: "Sh 100 = 2GB, 24 Hr", offer2: "+FREE Gmaps")
+                                HotDeals(offer1: "Sh 20 (30 Minutes, 3hrs")
+                                HotDeals(offer1: "Sh 20 = 200MB + 10 Mins,", offer2: "1hr")
+                                HotDeals(offer1: "Sh 50 (Kredo,", offer2: "125, Midnight")
+                                HotDeals(offer1: "Sh 10 = 1024MB", offer2: "TikTok, 1Hr")
+                            }
+                            .padding(.horizontal, 6)
+                        }
+                        
+                        // MARK: FOR YOU
+                        Text("FOR YOU")
+                            .foregroundStyle(.gray)
+                            .fontWeight(.light)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading, 8)
+                            .padding(.top, 8)
+                        
+                        ImageView()
+                            .padding(.horizontal, 6)
+                        
+                        Rectangle()
+                            .fill(.clear)
+                            .frame(height: 50)
+                        
+                        
+                    }
+                    .scrollIndicators(.hidden)
                     .frame(maxHeight: .infinity)
-                    .background(.yellow)
+                }
+                
+                .frame(maxHeight: .infinity)
+                .fullScreenCover(isPresented: $showSearchView, content: {
+                    SearchView()
+                })
+                
+                
+                if isDarkMode {
+                    Rectangle()
+                        .fill(.gray)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 0.5)
+                    //                    .offset(y: -250) // <- return offset to 225 before runninf the app on sim. for some reason it messes the sim
+                        .offset(y: -225)
+                }
+                
+                NavigationLink {
+                    AccountBalance()
+                } label: {
+                    balancesButton
+                }
+                .offset(y: -225)
+                //                .offset(y: -245)
             }
-            .frame(maxHeight: .infinity)
-            .preferredColorScheme(selectedTheme) // Apply the selected theme
+            .preferredColorScheme(selectedTheme)
         }
     }
 }
+
 
 #Preview {
     HomeView()
@@ -129,10 +175,10 @@ extension SchemeType {
 extension HomeView {
     private var balancesButton: some View {
         RoundedRectangle(cornerRadius: 10)
-            .fill(isDarkMode ? Color("buttonColor") : .white)
+            .fill(colorScheme == .dark ? Color("buttonColor") : .white)
             .fontWeight(.semibold)
             .frame(width: 250, height: 50)
-            .shadow(radius: 10)
+            .shadow(radius: 5)
             .overlay {
                 Text("View my Balances")
                     .font(.headline)
@@ -141,45 +187,24 @@ extension HomeView {
             }
     }
     
-    private var zGroup: some View {
-        Group {
-            if isDarkMode {
-                Theme.dark
-                    .ignoresSafeArea()
-            } else {
-                Theme.light
-                    .ignoresSafeArea()
-            }
-            
-            TopView()
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-            
-            
-            if isDarkMode {
-                Rectangle()
-                    .fill(.gray)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 0.5)
-                    .offset(y: -240)
-            }
-            
-            balancesButton
-                .offset(y: -240)
-        }
-    }
-    
     private var gridButtons: some View {
-            LazyVGrid(columns: columns) {
+        LazyVGrid(columns: columns) {
+            NavigationLink {
+                Text("hi")
+            } label: {
                 GridRow(imageName: "airtime", title: "Data, Calls, SMS & Airtime")
-                GridRow(imageName: "basket", title: "Lipa na M-PESA")
-                GridRow(imageName: "chart", title: "My Usage")
-                GridRow(imageName: "homeRow", title: "Home Internet")
-                GridRow(imageName: "giftRow", title: "Tunikiwa offers")
-                GridRow(imageName: "call", title: "Airtime Top up")
-                GridRow(imageName: "pot", title: "Bonga")
-                GridRow(imageName: "hook", title: "S-Hook Bundles")
             }
-            .padding(.top, 12)
+            
+            GridRow(imageName: "basket", title: "Lipa na M-PESA")
+            GridRow(imageName: "chart", title: "My Usage")
+            GridRow(imageName: "homeRow", title: "Home Internet")
+            GridRow(imageName: "giftRow", title: "Tunikiwa offers")
+            GridRow(imageName: "call", title: "Airtime Top up")
+            GridRow(imageName: "pot", title: "Bonga")
+            GridRow(imageName: "hook", title: "S-Hook Bundles")
+        }
+        .tint(.primary)
+        .padding(.top, 12)
     }
     private var storyViews: some View {
         ScrollView(.horizontal) {
@@ -199,10 +224,83 @@ extension HomeView {
         HStack {
             ImageCarousel()
             VStack(spacing: 25) {
-                GridRow(imageName: "girl", title: "Ask Zuri", subtitle: "Get help")
-                GridRow(imageName: "send-money", title: "Send Money")
+                NavigationLink {
+                    Zuri()
+                } label: {
+                    GridRow(imageName: "girl", title: "Ask Zuri", subtitle: "Get help")
+                }
+                .tint(.primary)
+
+                NavigationLink {
+                    SendMoney()
+                } label: {
+                    GridRow(imageName: "send-money", title: "Send Money")
+                }
+                .tint(.primary)
+                
             }
         }
         .frame(height: 200)
     }
 }
+
+struct SearchView: View {
+    @State private var searchableText: String = ""
+    @Environment(\.dismiss) var dismiss
+    
+    var searchItems: [String] = [
+        "About",
+        "Airtime Topup",
+        "Bill Manager",
+        "Bonga",
+        "Buy Airtime",
+        "Cost Calculator",
+        "Data Call Plan",
+        "Data Sharing",
+        "Data, SMS, Call Plan",
+        "E Newspaper",
+        "Fuliza",
+        "Get PUK",
+        "Lipa na Bonga",
+        "Lipa na M-PESA",
+        "M-PESA Global"
+    ]
+    
+    var body: some View {
+        NavigationStack {
+            List(searchItems, id: \.self) { search in
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                    Text(search)
+                }
+            }
+            .listStyle(.plain)
+            .searchable(text: $searchableText)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Image(systemName: "arrow.left")
+                        .imageScale(.large)
+                        .onTapGesture {
+                            dismiss()
+                        }
+                }
+            }
+        }
+    }
+    
+}
+
+
+
+// Computed property for current theme based on user preference and system color scheme
+//    private var currentTheme: String {
+//        if isDarkMode {
+//            return "Dark" // User preference overrides system color scheme
+//        } else {
+//            return colorScheme == .light ? "Light" : "Dark"
+//        }
+//    }
+
+//    @State private var selectedTheme: ColorScheme = .light // Initialize with a default theme
+
+// Use the system color scheme if user preference for dark mode is not set

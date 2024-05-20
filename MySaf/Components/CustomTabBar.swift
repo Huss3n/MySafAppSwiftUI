@@ -11,12 +11,14 @@ struct CustomTabBar: View {
     @Binding var tabSelection: Int
     @Namespace private var animationNamespace
     let tabItems = ["home", "send", "safTabLogo", "gift", "account"]
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        ZStack {
-            Rectangle()
-                .frame(height: 0.3)
-                .offset(y: -28)
+//        ZStack {
+//            Rectangle()
+//                .fill(.red)
+//                .frame(height: 0.3)
+//                .offset(y: -48)
             
             HStack {
                 ForEach(0..<5) { index in
@@ -30,7 +32,7 @@ struct CustomTabBar: View {
                                 Image(tabItems[index])
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: tabItems[index] == "safTabLogo" ? 60 : 30 , height: tabItems[index] == "safTabLogo" ? 60 : 30)
+                                    .frame(width: tabItems[index] == "safTabLogo" ? 35 : 30 , height: tabItems[index] == "safTabLogo" ? 35 : 30)
                                     .foregroundStyle(index + 1 == tabSelection ? .green : .gray)
                                     .offset(y: tabItems[index] == "safTabLogo" ? -23 : 0)
                                 
@@ -51,11 +53,12 @@ struct CustomTabBar: View {
                     })
                 }
             }
-            .background(.primary.opacity(0.08))
+            .background(colorScheme == .light ? .black.opacity(0.6) : .white.opacity(0.2))
+            .frame(maxWidth: .infinity)
             .frame(height: 80)
-            .padding(4)
+//            .padding(4)
             .offset(y: 17)
-        }
+//        }
 //        .padding(.horizontal)
     }
 }

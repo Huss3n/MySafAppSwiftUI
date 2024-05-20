@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HotDealsComponent: View {
+struct HotDeals: View {
     var offer1: String = ""
     var offer2: String = ""
     var body: some View {
@@ -17,26 +17,28 @@ struct HotDealsComponent: View {
             .overlay {
                 VStack(alignment: .leading) {
                     Text("Get")
-                        .padding(.bottom, 12)
+//                        .padding(.bottom, 8)
                     Text(offer1)
+                        .font(.subheadline)
                     Text(offer2)
+                        .font(.subheadline)
                     
                     
                     Image("gift")
                         .resizable()
                         .scaledToFit()
-                        .frame(height: 40)
+                        .frame(height: 45)
                         .frame(maxWidth: .infinity, alignment: .bottomTrailing)
                         .padding(.trailing, 12)
                 }
                 .padding(.leading, 24)
                 .foregroundStyle(.white)
-                .fontWeight(.bold)
+                .fontWeight(.medium)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             }
     }
 }
 
 #Preview {
-    HotDealsComponent()
+    HotDeals()
 }

@@ -22,9 +22,10 @@ struct GridRow: View {
                 HStack(alignment: .center, spacing: 18) {
                     Image(imageName)
                         .resizable()
-                        .scaledToFill()
-                        .frame(width: 55, height: 48)
+                        .scaledToFit()
+                        .frame(width: 38, height: 32)
 //                        .clipShape(Circle())
+                        .padding(.leading)
                     
                     VStack(alignment: .leading, spacing: 12) {
                         Text(title)
@@ -36,8 +37,8 @@ struct GridRow: View {
                             .foregroundStyle(.gray)
                             .fontWeight(.light)
                     }
-                    
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
             .shadow(radius: 3)
     }

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TopView: View {
     @Environment(\.colorScheme) var colorScheme
-    
     var body: some View {
         VStack(spacing: 2) {
             Text("Good Afternoon")
