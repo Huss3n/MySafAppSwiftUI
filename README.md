@@ -25,7 +25,6 @@ Below are some screenshots showcasing different parts of the app:
    <img src="https://github.com/Huss3n/MySafAppSwiftUI/blob/main/Screenshots/account.png", width="200" hspace="4"/>
    <img src="https://github.com/Huss3n/MySafAppSwiftUI/blob/main/Screenshots/sendMoney.png", width="200" hspace="4"/>
    <img src="https://github.com/Huss3n/MySafAppSwiftUI/blob/main/Screenshots/withdraw.png", width="200" hspace="4"/>
-   <img src="https://github.com/Huss3n/MySafAppSwiftUI/blob/main/Screenshots/balance.png", width="200" hspace="4"/>
 </p>
 
 ### Dark Mode
