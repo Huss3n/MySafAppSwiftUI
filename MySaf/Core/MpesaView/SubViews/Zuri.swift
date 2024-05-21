@@ -4,7 +4,7 @@
 //
 //  Created by Muktar Hussein on 18/05/2024.
 //
-// gemini api Key = AIzaSyBsMEEj__ECuh4tkw3azYipJfq6rnan5nY
+// gemini api Key = 
 
 import SwiftUI
 import GoogleGenerativeAI
