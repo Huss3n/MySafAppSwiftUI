@@ -13,15 +13,21 @@ enum Theme {
 }
 
 struct HomeView: View {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var delegate
+    
     let slideImages: [String] = ["pic1", "pic2", "pic3", "pic4", "pic5"]
+    
     
     //    @AppStorage("systemThemeValue") private var systemThemeValue: Int = SchemeType.allCases.first!.rawValue
     @Environment(\.colorScheme) private var colorScheme: ColorScheme // System color scheme
+    @Environment(\.scenePhase) private var scenePhase
     @State private var isDarkMode: Bool = false // Updates user preference
     
     @State private var showSearchView: Bool = false
     
     @State private var selectedTheme: ColorScheme? = nil
+    
+    @State private var showNotifications: Bool = false
     
     
     var columns: [GridItem] = [
@@ -61,6 +67,10 @@ struct HomeView: View {
                                         showSearchView.toggle()
                                     }
                                 Image(systemName: "bell.badge")
+                                    .onTapGesture {
+                                        showNotifications.toggle()
+                                    }
+                                
                             }
                             .foregroundStyle(.white)
                         }
@@ -70,6 +80,9 @@ struct HomeView: View {
                     }
                     .background(colorScheme == .light ? .green : .black)
                     .padding(.bottom, 36)
+                    .navigationDestination(isPresented: $showNotifications) {
+                        NotificationListView()
+                    }
                     
                     
                     ScrollView {
@@ -120,7 +133,6 @@ struct HomeView: View {
                     .scrollIndicators(.hidden)
                     .frame(maxHeight: .infinity)
                 }
-                
                 .frame(maxHeight: .infinity)
                 .fullScreenCover(isPresented: $showSearchView, content: {
                     SearchView()
@@ -141,10 +153,21 @@ struct HomeView: View {
                 } label: {
                     balancesButton
                 }
-                .offset(y: -225)
+                .offset(y: -220)
                 //                .offset(y: -245)
             }
             .preferredColorScheme(selectedTheme)
+            .onAppear {
+                NotificationCenter.default.addObserver(forName: .navigateToNotification, object: nil, queue: .main) { notification in
+                    if let url = notification.object as? URL, url.host == "notification" {
+                        showNotifications = true
+                    }
+                }
+            }
+            .onOpenURL { url in
+                guard url.host == "notification" else { return }
+                showNotifications = true
+            }
         }
     }
 }
@@ -230,7 +253,7 @@ extension HomeView {
                     GridRow(imageName: "girl", title: "Ask Zuri", subtitle: "Get help")
                 }
                 .tint(.primary)
-
+                
                 NavigationLink {
                     SendMoney()
                 } label: {
@@ -304,3 +327,39 @@ struct SearchView: View {
 //    @State private var selectedTheme: ColorScheme = .light // Initialize with a default theme
 
 // Use the system color scheme if user preference for dark mode is not set
+
+
+struct NotificationListView: View {
+    @ObservedObject var notificationManager = NotificationManager.shared
+    var sortedNotifications: [AppNotification] {
+        return notificationManager.notifications.sorted(by: { $0.date > $1.date })
+    }
+    
+    
+    var body: some View {
+        NavigationView {
+            ZStack {
+                if sortedNotifications.isEmpty {
+                    
+                    ContentUnavailableView("No transactions available", systemImage: "doc.questionmark", description: Text("You recent transactions will be displayed here"))
+                    
+                }else {
+                    List(sortedNotifications) { notification in
+                        VStack(alignment: .leading) {
+                            Text(notification.title)
+                                .font(.headline)
+                            Text(notification.subtitle)
+                                .font(.subheadline)
+                            Text(notification.date, style: .date)
+                                .font(.caption)
+                        }
+                    }
+                    .listStyle(.plain)
+                    
+                }
+            }
+            .navigationTitle("Recent Transactions")
+            .navigationBarTitleDisplayMode(.inline)
+        }
+    }
+}

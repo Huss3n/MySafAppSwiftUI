@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MpesaView: View {
     @Environment(\.colorScheme) var colorScheme
+    @ObservedObject var mpesaBalance = MpesaBalance.instance
     @State private var showBalance: Bool = false
     
     var columns: [GridItem] = [
@@ -21,23 +22,82 @@ struct MpesaView: View {
         NavigationStack {
             ZStack(alignment: .top) {
                     VStack(spacing: 10) {
-                        RoundedRectangle(cornerRadius: 25)
-                            .fill(colorScheme == .dark ? Color("buttonColor") : .white)
-                            .fontWeight(.semibold)
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 45)
-                            .shadow(radius: 5)
-                            .overlay {
-                                Text("Show Balance")
-                                    .font(.headline)
-                                    .foregroundStyle(.green)
-                            }
-//                            .padding(.top, 6)
-                            .onTapGesture {
-                                withAnimation(.easeInOut) {
-                                    showBalance.toggle()
+                        HStack {
+                            if showBalance {
+                                ZStack {
+                                    
+                                    RoundedRectangle(cornerRadius: 25)
+                                        .fill(.green)
+                                        .fontWeight(.semibold)
+                                        .frame(maxWidth: .infinity)
+                                        .frame(height: 45)
+                                        .shadow(radius: 5)
+                                        .overlay {
+                                            Text("Hide")
+                                                .font(.headline)
+                                                .frame(maxWidth: .infinity, alignment: .trailing)
+                                                .offset(x: -8)
+                                                .onTapGesture {
+                                                    withAnimation(.bouncy) {
+                                                        showBalance.toggle()
+                                                    }
+                                                }
+                                        }
+                                        .padding(.top, 6)
+                                        .onTapGesture {
+                                            withAnimation(.easeOut) {
+                                                showBalance.toggle()
+                                            }
+                                        }
+                                    
+                                    
+                                    RoundedRectangle(cornerRadius: 25)
+                                        .fill(colorScheme == .dark ? Color("buttonColor") : .white)
+                                        .fontWeight(.semibold)
+//                                        .frame(maxWidth: .infinity)
+                                        .frame(height: 45)
+                                        .shadow(radius: 5)
+                                        .overlay {
+                                            HStack {
+                                                Text("MPESA Balance")
+                                                Text("Ksh.\(String(format: "%.2f", mpesaBalance.mpesaBalance))")
+                                                    .font(.headline)
+                                                    .foregroundStyle(.green)
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                            }
+                                            .font(.subheadline)
+                                            .offset(x: 60)
+                                        }
+                                        .padding(.top, 6)
+                                        .onTapGesture {
+                                            withAnimation(.easeIn) {
+                                                showBalance.toggle()
+                                            }
+                                        }
+                                        .offset(x: -50)
+                                    
                                 }
+                            } else {
+                                RoundedRectangle(cornerRadius: 25)
+                                    .fill(colorScheme == .dark ? Color("buttonColor") : .white)
+                                    .fontWeight(.semibold)
+//                                    .frame(maxWidth: .infinity)
+                                    .frame(height: 45)
+                                    .shadow(radius: 5)
+                                    .overlay {
+                                        Text("Show Balance")
+                                            .font(.headline)
+                                            .foregroundStyle(.green)
+                                    }
+                                    .padding(.top, 6)
+                                    .onTapGesture {
+                                        withAnimation(.easeInOut) {
+                                            showBalance.toggle()
+                                        }
+                                    }
                             }
+                        }
+                        
                         
                         LazyVGrid(columns: columns, content: {
                             NavigationLink {
@@ -54,7 +114,13 @@ struct MpesaView: View {
                             }
                             .tint(.primary)
 
-                            MpesaButton(imageName: "call", text: "Buy Airtime")
+                            NavigationLink {
+                                BuyAirtime()
+                            } label: {
+                                MpesaButton(imageName: "call", text: "Buy Airtime")
+                            }
+                            .tint(.primary)
+
                             MpesaButton(imageName: "basket", text: "Lipa na M-PESA")
                             MpesaButton(imageName: "receipt", text: "Bill Manager")
                             MpesaButton(imageName: "e-sim", text: "Loans & Savings")
@@ -163,9 +229,6 @@ struct MpesaView: View {
 //                    .navigationTitle("M-PESA")
 //                    .navigationBarTitleTextColor(.white)
                     .navigationBarTitleDisplayMode(.inline)
-                    .fullScreenCover(isPresented: $showBalance, content: {
-                     ShowBalanceView()
-                    })
                     .padding(.top, 18)
                     .offset(y: 30)
                 
@@ -203,21 +266,4 @@ extension View {
     }
 }
 
-struct ShowBalanceView: View {
-    @Environment(\.dismiss) var dismiss
-    var body: some View {
-        NavigationStack {
-            VStack {
-                Text("M-PESA Balance View")
-            }
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Image(systemName: "arrow.left")
-                        .onTapGesture {
-                            dismiss()
-                        }
-                }
-            }
-        }
-    }
-}
+

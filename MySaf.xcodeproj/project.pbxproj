@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D74A7D432BFCC05B0092F854 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74A7D422BFCC05B0092F854 /* APIKey.swift */; };
+		D74A7D492BFCC1970092F854 /* OpenAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74A7D482BFCC1970092F854 /* OpenAI.swift */; };
+		D770C5E02BFF1BB900644507 /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D770C5DF2BFF1BB900644507 /* TransactionType.swift */; };
+		D770C5E22BFF289E00644507 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D770C5E12BFF289E00644507 /* AppDelegate.swift */; };
+		D770C5E42BFF38CB00644507 /* CheckMarkAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D770C5E32BFF38CB00644507 /* CheckMarkAnimation.swift */; };
+		D770C5E82BFF4DDA00644507 /* BuyAirtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = D770C5E72BFF4DDA00644507 /* BuyAirtime.swift */; };
+		D770C5EA2BFF63FE00644507 /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D770C5E92BFF63FD00644507 /* PopUp.swift */; };
+		D770C5ED2BFF6C9200644507 /* RandomID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D770C5EC2BFF6C9100644507 /* RandomID.swift */; };
+		D770C5EF2BFF807F00644507 /* ErrorAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D770C5EE2BFF807F00644507 /* ErrorAnimation.swift */; };
+		D7BC00AF2BFD1E3300E29AB8 /* PinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BC00AE2BFD1E3300E29AB8 /* PinView.swift */; };
+		D7BC00B12BFD4B2700E29AB8 /* SentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BC00B02BFD4B2700E29AB8 /* SentView.swift */; };
+		D7BC00B42BFDCFC100E29AB8 /* LocalAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BC00B32BFDCFC100E29AB8 /* LocalAuth.swift */; };
+		D7BC00B72BFDE0CF00E29AB8 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BC00B62BFDE0CF00E29AB8 /* NotificationManager.swift */; };
+		D7BC00B92BFDF2A400E29AB8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7BC00B82BFDF2A400E29AB8 /* Launch Screen.storyboard */; };
+		D7BC00BD2BFE1D7800E29AB8 /* FulizaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BC00BC2BFE1D7800E29AB8 /* FulizaView.swift */; };
+		D7BC00BF2BFE271500E29AB8 /* MpesaBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BC00BE2BFE271500E29AB8 /* MpesaBalance.swift */; };
+		D7BC00C22BFE528C00E29AB8 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = D7BC00C12BFE528C00E29AB8 /* GoogleGenerativeAI */; };
+		D7BC00C52BFE52A900E29AB8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D7BC00C42BFE52A900E29AB8 /* Alamofire */; };
 		D7E2EE6E2BF3A1E000F52350 /* MySafApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E2EE6D2BF3A1E000F52350 /* MySafApp.swift */; };
 		D7E2EE702BF3A1E000F52350 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E2EE6F2BF3A1E000F52350 /* ContentView.swift */; };
 		D7E2EE722BF3A1E200F52350 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7E2EE712BF3A1E200F52350 /* Assets.xcassets */; };
@@ -27,14 +45,30 @@
 		D7E3119E2BF750D900A35A94 /* SendMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E3119D2BF750D900A35A94 /* SendMoney.swift */; };
 		D7E311A02BF7A1F900A35A94 /* Withdraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E3119F2BF7A1F900A35A94 /* Withdraw.swift */; };
 		D7E311A22BF8D24F00A35A94 /* Zuri.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E311A12BF8D24F00A35A94 /* Zuri.swift */; };
-		D7E311A52BF8DF4800A35A94 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = D7E311A42BF8DF4800A35A94 /* GoogleGenerativeAI */; };
 		D7E311A82BFB334700A35A94 /* SPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E311A72BFB334700A35A94 /* SPage.swift */; };
 		D7E311AB2BFB36AE00A35A94 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E311AA2BFB36AE00A35A94 /* Account.swift */; };
 		D7E311AE2BFB4F1200A35A94 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E311AD2BFB4F1200A35A94 /* Categories.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D7E2EE6A2BF3A1E000F52350 /* MySaf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = MySaf.app; path = "/Users/hussein/Desktop/IoSApps/MySaf/build/Debug-iphoneos/MySaf.app"; sourceTree = "<absolute>"; };
+		D74A7D2C2BFC87510092F854 /* MySaf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySaf.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D74A7D422BFCC05B0092F854 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		D74A7D482BFCC1970092F854 /* OpenAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAI.swift; sourceTree = "<group>"; };
+		D770C5DE2BFF1A4B00644507 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D770C5DF2BFF1BB900644507 /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
+		D770C5E12BFF289E00644507 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D770C5E32BFF38CB00644507 /* CheckMarkAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkAnimation.swift; sourceTree = "<group>"; };
+		D770C5E72BFF4DDA00644507 /* BuyAirtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyAirtime.swift; sourceTree = "<group>"; };
+		D770C5E92BFF63FD00644507 /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
+		D770C5EC2BFF6C9100644507 /* RandomID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomID.swift; sourceTree = "<group>"; };
+		D770C5EE2BFF807F00644507 /* ErrorAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAnimation.swift; sourceTree = "<group>"; };
+		D7BC00AE2BFD1E3300E29AB8 /* PinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinView.swift; sourceTree = "<group>"; };
+		D7BC00B02BFD4B2700E29AB8 /* SentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentView.swift; sourceTree = "<group>"; };
+		D7BC00B32BFDCFC100E29AB8 /* LocalAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuth.swift; sourceTree = "<group>"; };
+		D7BC00B62BFDE0CF00E29AB8 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		D7BC00B82BFDF2A400E29AB8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		D7BC00BC2BFE1D7800E29AB8 /* FulizaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FulizaView.swift; sourceTree = "<group>"; };
+		D7BC00BE2BFE271500E29AB8 /* MpesaBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MpesaBalance.swift; sourceTree = "<group>"; };
 		D7E2EE6D2BF3A1E000F52350 /* MySafApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySafApp.swift; sourceTree = "<group>"; };
 		D7E2EE6F2BF3A1E000F52350 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D7E2EE712BF3A1E200F52350 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,25 +99,76 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7E311A52BF8DF4800A35A94 /* GoogleGenerativeAI in Frameworks */,
+				D7BC00C22BFE528C00E29AB8 /* GoogleGenerativeAI in Frameworks */,
+				D7BC00C52BFE52A900E29AB8 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D74A7D472BFCC1840092F854 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D74A7D482BFCC1970092F854 /* OpenAI.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D74A7D4A2BFCFF8A0092F854 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D7BC00AE2BFD1E3300E29AB8 /* PinView.swift */,
+				D7BC00B02BFD4B2700E29AB8 /* SentView.swift */,
+				D7BC00BC2BFE1D7800E29AB8 /* FulizaView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D770C5EB2BFF6C8400644507 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D770C5EC2BFF6C9100644507 /* RandomID.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		D7BC00B22BFDCF9D00E29AB8 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				D7BC00B32BFDCFC100E29AB8 /* LocalAuth.swift */,
+				D7BC00BE2BFE271500E29AB8 /* MpesaBalance.swift */,
+				D770C5DF2BFF1BB900644507 /* TransactionType.swift */,
+				D770C5E12BFF289E00644507 /* AppDelegate.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		D7BC00B52BFDE0BF00E29AB8 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				D7BC00B62BFDE0CF00E29AB8 /* NotificationManager.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		D7E2EE612BF3A1E000F52350 = {
 			isa = PBXGroup;
 			children = (
 				D7E2EE6C2BF3A1E000F52350 /* MySaf */,
 				D7E2EE7F2BF3A7D500F52350 /* Frameworks */,
+				D74A7D2C2BFC87510092F854 /* MySaf.app */,
 			);
 			sourceTree = "<group>";
 		};
 		D7E2EE6C2BF3A1E000F52350 /* MySaf */ = {
 			isa = PBXGroup;
 			children = (
+				D770C5EB2BFF6C8400644507 /* Helper */,
+				D770C5DE2BFF1A4B00644507 /* Info.plist */,
+				D7BC00B52BFDE0BF00E29AB8 /* Notifications */,
 				D7E311752BF5360100A35A94 /* App */,
+				D7BC00B22BFDCF9D00E29AB8 /* Auth */,
 				D7E311762BF5360600A35A94 /* Core */,
 				D7E311772BF5360B00A35A94 /* Components */,
 				D7E2EE6F2BF3A1E000F52350 /* ContentView.swift */,
@@ -136,7 +221,11 @@
 				D7E311892BF613EF00A35A94 /* StoryView.swift */,
 				D7E3118B2BF6288600A35A94 /* GridRow.swift */,
 				D7E3118D2BF62AAD00A35A94 /* ImageCarousel.swift */,
+				D7BC00B82BFDF2A400E29AB8 /* Launch Screen.storyboard */,
 				D7E311912BF6A96D00A35A94 /* ImageView.swift */,
+				D770C5E32BFF38CB00644507 /* CheckMarkAnimation.swift */,
+				D770C5E92BFF63FD00644507 /* PopUp.swift */,
+				D770C5EE2BFF807F00644507 /* ErrorAnimation.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -144,6 +233,7 @@
 		D7E3117E2BF5EEE600A35A94 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				D74A7D472BFCC1840092F854 /* ViewModel */,
 				D7E311802BF5EEFA00A35A94 /* View */,
 				D7E3117F2BF5EEF100A35A94 /* Components */,
 			);
@@ -164,6 +254,7 @@
 		D7E311802BF5EEFA00A35A94 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D7E311A12BF8D24F00A35A94 /* Zuri.swift */,
 				D7E311822BF5EF1400A35A94 /* HomeView.swift */,
 				D7E311932BF70F3600A35A94 /* AccountBalance.swift */,
 			);
@@ -173,6 +264,7 @@
 		D7E311972BF7450D00A35A94 /* MpesaView */ = {
 			isa = PBXGroup;
 			children = (
+				D74A7D4A2BFCFF8A0092F854 /* Components */,
 				D7E311982BF7451F00A35A94 /* MpesaView.swift */,
 				D7E3119C2BF750C400A35A94 /* SubViews */,
 			);
@@ -184,7 +276,8 @@
 			children = (
 				D7E3119D2BF750D900A35A94 /* SendMoney.swift */,
 				D7E3119F2BF7A1F900A35A94 /* Withdraw.swift */,
-				D7E311A12BF8D24F00A35A94 /* Zuri.swift */,
+				D74A7D422BFCC05B0092F854 /* APIKey.swift */,
+				D770C5E72BFF4DDA00644507 /* BuyAirtime.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -230,10 +323,11 @@
 			);
 			name = MySaf;
 			packageProductDependencies = (
-				D7E311A42BF8DF4800A35A94 /* GoogleGenerativeAI */,
+				D7BC00C12BFE528C00E29AB8 /* GoogleGenerativeAI */,
+				D7BC00C42BFE52A900E29AB8 /* Alamofire */,
 			);
 			productName = MySaf;
-			productReference = D7E2EE6A2BF3A1E000F52350 /* MySaf.app */;
+			productReference = D74A7D2C2BFC87510092F854 /* MySaf.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -261,7 +355,8 @@
 			);
 			mainGroup = D7E2EE612BF3A1E000F52350;
 			packageReferences = (
-				D7E311A32BF8DF4800A35A94 /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
+				D7BC00C02BFE528C00E29AB8 /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
+				D7BC00C32BFE52A900E29AB8 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = D7E2EE612BF3A1E000F52350;
 			projectDirPath = "";
@@ -279,6 +374,7 @@
 			files = (
 				D7E2EE752BF3A1E200F52350 /* Preview Assets.xcassets in Resources */,
 				D7E2EE722BF3A1E200F52350 /* Assets.xcassets in Resources */,
+				D7BC00B92BFDF2A400E29AB8 /* Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,26 +385,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7BC00BD2BFE1D7800E29AB8 /* FulizaView.swift in Sources */,
 				D7E3117D2BF5721400A35A94 /* MainTab.swift in Sources */,
 				D7E311962BF70F8200A35A94 /* BalanceRow.swift in Sources */,
 				D7E2EE702BF3A1E000F52350 /* ContentView.swift in Sources */,
 				D7E3117B2BF5366200A35A94 /* CustomTabBar.swift in Sources */,
+				D770C5EF2BFF807F00644507 /* ErrorAnimation.swift in Sources */,
+				D7BC00AF2BFD1E3300E29AB8 /* PinView.swift in Sources */,
+				D7BC00B12BFD4B2700E29AB8 /* SentView.swift in Sources */,
+				D770C5E22BFF289E00644507 /* AppDelegate.swift in Sources */,
 				D7E311832BF5EF1400A35A94 /* HomeView.swift in Sources */,
+				D770C5EA2BFF63FE00644507 /* PopUp.swift in Sources */,
 				D7E311AB2BFB36AE00A35A94 /* Account.swift in Sources */,
+				D770C5E42BFF38CB00644507 /* CheckMarkAnimation.swift in Sources */,
+				D74A7D432BFCC05B0092F854 /* APIKey.swift in Sources */,
 				D7E311A22BF8D24F00A35A94 /* Zuri.swift in Sources */,
+				D7BC00B42BFDCFC100E29AB8 /* LocalAuth.swift in Sources */,
+				D7BC00BF2BFE271500E29AB8 /* MpesaBalance.swift in Sources */,
 				D7E311922BF6A96D00A35A94 /* ImageView.swift in Sources */,
 				D7E311AE2BFB4F1200A35A94 /* Categories.swift in Sources */,
+				D770C5ED2BFF6C9200644507 /* RandomID.swift in Sources */,
 				D7E311852BF5F1AC00A35A94 /* TopView.swift in Sources */,
 				D7E311A82BFB334700A35A94 /* SPage.swift in Sources */,
 				D7E311902BF6469600A35A94 /* HotDeals.swift in Sources */,
 				D7E3118A2BF613EF00A35A94 /* StoryView.swift in Sources */,
+				D7BC00B72BFDE0CF00E29AB8 /* NotificationManager.swift in Sources */,
 				D7E3118C2BF6288600A35A94 /* GridRow.swift in Sources */,
+				D770C5E02BFF1BB900644507 /* TransactionType.swift in Sources */,
 				D7E3118E2BF62AAD00A35A94 /* ImageCarousel.swift in Sources */,
 				D7E3119E2BF750D900A35A94 /* SendMoney.swift in Sources */,
 				D7E3119B2BF745DB00A35A94 /* MpesaButton.swift in Sources */,
 				D7E311992BF7451F00A35A94 /* MpesaView.swift in Sources */,
+				D770C5E82BFF4DDA00644507 /* BuyAirtime.swift in Sources */,
 				D7E311942BF70F3600A35A94 /* AccountBalance.swift in Sources */,
 				D7E311A02BF7A1F900A35A94 /* Withdraw.swift in Sources */,
+				D74A7D492BFCC1970092F854 /* OpenAI.swift in Sources */,
 				D7E2EE6E2BF3A1E000F52350 /* MySafApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,9 +557,12 @@
 				DEVELOPMENT_TEAM = 648U26QNYT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MySaf/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Allow face id to secure your funds";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -456,7 +570,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.MySaf;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MySafariCOM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -475,9 +589,12 @@
 				DEVELOPMENT_TEAM = 648U26QNYT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MySaf/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Allow face id to secure your funds";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -485,7 +602,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.MySaf;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MySafariCOM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -517,7 +634,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D7E311A32BF8DF4800A35A94 /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
+		D7BC00C02BFE528C00E29AB8 /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/generative-ai-swift";
 			requirement = {
@@ -525,13 +642,26 @@
 				minimumVersion = 0.5.3;
 			};
 		};
+		D7BC00C32BFE52A900E29AB8 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D7E311A42BF8DF4800A35A94 /* GoogleGenerativeAI */ = {
+		D7BC00C12BFE528C00E29AB8 /* GoogleGenerativeAI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D7E311A32BF8DF4800A35A94 /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
+			package = D7BC00C02BFE528C00E29AB8 /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
 			productName = GoogleGenerativeAI;
+		};
+		D7BC00C42BFE52A900E29AB8 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D7BC00C32BFE52A900E29AB8 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
